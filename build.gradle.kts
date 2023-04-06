@@ -2,8 +2,11 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
 	war
+	jacoco
+	id("io.gitlab.arturbosch.detekt").version("1.22.0")
 	id("org.springframework.boot") version "3.0.5"
 	id("io.spring.dependency-management") version "1.1.0"
+	id("org.jetbrains.dokka") version "1.4.32"
 	kotlin("jvm") version "1.7.22"
 	kotlin("plugin.spring") version "1.7.22"
 }
@@ -25,6 +28,29 @@ dependencies {
 	runtimeOnly("com.h2database:h2")
 	runtimeOnly("org.springframework.boot:spring-boot-devtools")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+}
+
+detekt {
+	toolVersion = "1.18.0-RC3"
+
+    //source.setFrom()
+    config = files("detektConfig.yml")
+
+    reports {
+        // Enable/Disable HTML report (default: true)
+        html {
+            enabled = true
+            reportsDir = file("public/detekt")
+        }
+
+        sarif {
+            enabled = false
+        }
+    }
+}
+
+tasks.dokkaHtml.configure {
+    outputDirectory.set(projectDir.resolve("public/dokka"))
 }
 
 tasks.withType<KotlinCompile> {

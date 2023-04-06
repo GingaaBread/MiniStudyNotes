@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>detekt report</title>
+    <style>
+h2 {
+  background-color: #666666;
+  padding: 0.2em;
+  color: #ffffff;
+}
+h3 {
+  background-color:#f8dfdf;
+  padding:0.5em;
+}
+.rule {
+  background-color: #dddddd;
+  padding: 0.3em;
+  font-weight: bold;
+}
+.description {
+  color:#000000;
+  padding:0.3em;
+}
+.location {
+  color: #690505;
+  font-family: monospace;
+  display: block;
+}
+.message {
+  font-size: 0.8em;
+  color: #444444;
+  display: block;
+  margin-top: 1pt;
+}
+.rule-container {
+  border: 0.1em dashed #dddddd;
+  padding: 0.1em;
+  line-height: 1.5em;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+pre {
+  border: 1px solid #e0e0e0;
+  overflow: scroll;
+}
+.lineno {
+  color: #999999;
+  background-color: #f0f0f0;
+}
+.error {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4AwCFR4T/3uLMgAAADxJREFUCNdNyLERQEAABMCjL4lQwIzcjErpguAL+C9AvgKJDbeD/PRpLdm35Hm+MU+cB+tCKaJW4L4YBy+CAiLJrFs9mgAAAABJRU5ErkJggg==) bottom repeat-x;
+}
+.exception {
+  color: #b60808;
+  display: inline-block;
+  background-color: #ecdada;
+  border-color: #b60808;
+  border-radius: 10px;
+  border: solid 2px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-bottom: 16px;
+}
+</style>
+</head>
+<body>
+
+<h1>detekt report</h1>
+
+<h2>Metrics</h2>
+
+<div>
+  <ul>
+    <li>3 number of properties</li>
+    <li>12 number of functions</li>
+    <li>8 number of classes</li>
+    <li>4 number of packages</li>
+    <li>8 number of kt files</li>
+  </ul>
+</div>
+
+
+<h2>Complexity Report</h2>
+
+<div>
+  <ul>
+    <li>255 lines of code (loc)</li>
+    <li>142 source lines of code (sloc)</li>
+    <li>92 logical lines of code (lloc)</li>
+    <li>65 comment lines of code (cloc)</li>
+    <li>18 cyclomatic complexity (mcc)</li>
+    <li>9 cognitive complexity</li>
+    <li>19 number of total code smells</li>
+    <li>45% comment source ratio</li>
+    <li>195 mcc per 1,000 lloc</li>
+    <li>206 code smells per 1,000 lloc</li>
+  </ul>
+</div>
+
+
+<h2>Findings</h2>
+<div>Total: 19
+  <h3>comments: 14</h3>
+  <details id="UndocumentedPublicClass" open="open">
+    <summary class="rule-container"><span class="rule">UndocumentedPublicClass: 6 </span><span class="description">Public classes, interfaces and objects require documentation.</span></summary>
+    <ul>
+      <li><span class="location">C:/Users/Gino/Desktop/Informatik/Web/StudyNotes/MiniStudyNotes/src/main/kotlin/com/gingaabread/ministudynotes/MiniStudyNotesApplication.kt:8:7</span><span class="message">MiniStudyNotesApplication is missing required documentation.</span>
+        <pre><code><span class="lineno">   5 </span>import org.springframework.boot.runApplication
+<span class="lineno">   6 </span>
+<span class="lineno">   7 </span>@SpringBootApplication
+<span class="lineno">   8 </span>class <span class="error">MiniStudyNotesApplication</span>
+<span class="lineno">   9 </span>
+<span class="lineno">  10 </span>fun main(args: Array&lt;String&gt;) {
+<span class="lineno">  11 </span>	runApplication&lt;MiniStudyNotesApplication&gt;(*args) {
+</code></pre>
+      </li>
+      <li><span class="location">C:/Users/Gino/Desktop/Informatik/Web/StudyNotes/MiniStudyNotes/src/main/kotlin/com/gingaabread/ministudynotes/ServletInitializer.kt:6:7</span><span class="message">ServletInitializer is missing required documentation.</span>
+        <pre><code><span class="lineno">   3 </span>import org.springframework.boot.builder.SpringApplicationBuilder
+<span class="lineno">   4 </span>import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
+<span class="lineno">   5 </span>
+<span class="lineno">   6 </span>class <span class="error">ServletInitializer</span> : SpringBootServletInitializer() {
+<span class="lineno">   7 </span>
+<span class="lineno">   8 </span>	override fun configure(application: SpringApplicationBuilder): SpringApplicationBuilder {
+<span class="lineno">   9 </span>		return application.sources(MiniStudyNotesApplication::class.java)
+</code></pre>
+      </li>
+      <li><span class="location">C:/Users/Gino/Desktop/Informatik/Web/StudyNotes/MiniStudyNotes/src/main/kotlin/com/gingaabread/ministudynotes/data/StudyNote.kt:6:12</span><span class="message">StudyNote is missing required documentation.</span>
+        <pre><code><span class="lineno">   3 </span>import java.awt.Color
+<span class="lineno">   4 </span>import java.util.Date
+<span class="lineno">   5 </span>
+<span class="lineno">   6 </span>data class <span class="error">StudyNote</span>(
+<span class="lineno">   7 </span>    val text: String,
+<span class="lineno">   8 </span>    val colour: Color,
+<span class="lineno">   9 </span>    val creationDate: Date
+</code></pre>
+      </li>
+      <li><span class="location">C:/Users/Gino/Desktop/Informatik/Web/StudyNotes/MiniStudyNotes/src/main/kotlin/com/gingaabread/ministudynotes/data/Subject.kt:3:12</span><span class="message">Subject is missing required documentation.</span>
+        <pre><code><span class="lineno">   1 </span>package com.gingaabread.ministudynotes.data
+<span class="lineno">   2 </span>
+<span class="lineno">   3 </span>data class <span class="error">Subject</span>(
+<span class="lineno">   4 </span>    val name: String,
+<span class="lineno">   5 </span>    val notes: List&lt;StudyNote&gt;
+<span class="lineno">   6 </span>)
+</code></pre>
+      </li>
+      <li><span class="location">C:/Users/Gino/Desktop/Informatik/Web/StudyNotes/MiniStudyNotes/src/main/kotlin/com/gingaabread/ministudynotes/repositories/UserRepository.kt:9:11</span><span class="message">UserRepository is missing required documentation.</span>
+        <pre><code><span class="lineno">   6 </span>import org.springframework.stereotype.Repository
+<span class="lineno">   7 </span>
+<span class="lineno">   8 </span>@Repository
+<span class="lineno">   9 </span>interface <span class="error">UserRepository</span> : MongoRepository&lt;User, ObjectId&gt; {
+<span class="lineno">  10 </span>
+<span class="lineno">  11 </span>    fun findByUsername(username: String) : User?
+<span class="lineno">  12 </span>
+</code></pre>
+      </li>
+      <li><span class="location">C:/Users/Gino/Desktop/Informatik/Web/StudyNotes/MiniStudyNotes/src/test/kotlin/com/gingaabread/ministudynotes/MiniStudyNotesApplicationTests.kt:7:7</span><span class="message">MiniStudyNotesApplicationTests is missing required documentation.</span>
+        <pre><code><span class="lineno">   4 </span>import org.springframework.boot.test.context.SpringBootTest
+<span class="lineno">   5 </span>
+<span class="lineno">   6 </span>@SpringBootTest
+<span class="lineno">   7 </span>class <span class="error">MiniStudyNotesApplicationTests</span> {
+<span class="lineno">   8 </span>
+<span class="lineno">   9 </span>	@Test
+<span class="lineno">  10 </span>	fun contextLoads() {
+</code></pre>
+      </li>
+    </ul>
+  </details>
+  <details id="UndocumentedPublicFunction" open="open">
+    <summary class="rule-container"><span class="rule">UndocumentedPublicFunction: 8 </span><span class="description">Public functions require documentation.</span></summary>
+    <ul>
+      <li><span class="location">C:/Users/Gino/Desktop/Informatik/Web/StudyNotes/MiniStudyNotes/src/main/kotlin/com/gingaabread/ministudynotes/MiniStudyNotesApplication.kt:10:5</span><span class="message">The function main is missing documentation.</span>
+        <pre><code><span class="lineno">   7 </span>@SpringBootApplication
+<span class="lineno">   8 </span>class MiniStudyNotesApplication
+<span class="lineno">   9 </span>
+<span class="lineno">  10 </span>fun <span class="error">main</span>(args: Array&lt;String&gt;) {
+<span class="lineno">  11 </span>	runApplication&lt;MiniStudyNotesApplication&gt;(*args) {
+<span class="lineno">  12 </span>		setBannerMode(Banner.Mode.OFF)
+<span class="lineno">  13 </span>	}
+</code></pre>
+      </li>
+      <li><span class="location">C:/Users/Gino/Desktop/Informatik/Web/StudyNotes/MiniStudyNotes/src/main/kotlin/com/gingaabread/ministudynotes/controller/UserController.kt:27:9</span><span class="message">The function getCount is missing documentation.</span>
+        <pre><code><span class="lineno">  24 </span>    // Testing Purposes
+<span class="lineno">  25 </span>
+<span class="lineno">  26 </span>    @GetMapping
+<span class="lineno">  27 </span>    fun <span class="error">getCount</span>(): Int {
+<span class="lineno">  28 </span>        return userRepository.findAll().count()
+<span class="lineno">  29 </span>    }
+<span class="lineno">  30 </span>
+</code></pre>
+      </li>
+      <li><span class="location">C:/Users/Gino/Desktop/Informatik/Web/StudyNotes/MiniStudyNotes/src/main/kotlin/com/gingaabread/ministudynotes/controller/UserController.kt:32:9</span><span class="message">The function deleteAll is missing documentation.</span>
+        <pre><code><span class="lineno">  29 </span>    }
+<span class="lineno">  30 </span>
+<span class="lineno">  31 </span>    @DeleteMapping(&quot;/all&quot;)
+<span class="lineno">  32 </span>    fun <span class="error">deleteAll</span>() {
+<span class="lineno">  33 </span>        userRepository.deleteAll()
+<span class="lineno">  34 </span>    }
+<span class="lineno">  35 </span>
+</code></pre>
+      </li>
+      <li><span class="location">C:/Users/Gino/Desktop/Informatik/Web/StudyNotes/MiniStudyNotes/src/main/kotlin/com/gingaabread/ministudynotes/repositories/UserRepository.kt:11:9</span><span class="message">The function findByUsername is missing documentation.</span>
+        <pre><code><span class="lineno">   8 </span>@Repository
+<span class="lineno">   9 </span>interface UserRepository : MongoRepository&lt;User, ObjectId&gt; {
+<span class="lineno">  10 </span>
+<span class="lineno">  11 </span>    fun <span class="error">findByUsername</span>(username: String) : User?
+<span class="lineno">  12 </span>
+<span class="lineno">  13 </span>    fun findByEmail(email: String) : User?
+<span class="lineno">  14 </span>
+</code></pre>
+      </li>
+      <li><span class="location">C:/Users/Gino/Desktop/Informatik/Web/StudyNotes/MiniStudyNotes/src/main/kotlin/com/gingaabread/ministudynotes/repositories/UserRepository.kt:13:9</span><span class="message">The function findByEmail is missing documentation.</span>
+        <pre><code><span class="lineno">  10 </span>
+<span class="lineno">  11 </span>    fun findByUsername(username: String) : User?
+<span class="lineno">  12 </span>
+<span class="lineno">  13 </span>    fun <span class="error">findByEmail</span>(email: String) : User?
+<span class="lineno">  14 </span>
+<span class="lineno">  15 </span>    fun existsByUsername(username: String) : Boolean
+<span class="lineno">  16 </span>
+</code></pre>
+      </li>
+      <li><span class="location">C:/Users/Gino/Desktop/Informatik/Web/StudyNotes/MiniStudyNotes/src/main/kotlin/com/gingaabread/ministudynotes/repositories/UserRepository.kt:15:9</span><span class="message">The function existsByUsername is missing documentation.</span>
+        <pre><code><span class="lineno">  12 </span>
+<span class="lineno">  13 </span>    fun findByEmail(email: String) : User?
+<span class="lineno">  14 </span>
+<span class="lineno">  15 </span>    fun <span class="error">existsByUsername</span>(username: String) : Boolean
+<span class="lineno">  16 </span>
+<span class="lineno">  17 </span>    fun existsByEmail(email: String) : Boolean
+<span class="lineno">  18 </span>
+</code></pre>
+      </li>
+      <li><span class="location">C:/Users/Gino/Desktop/Informatik/Web/StudyNotes/MiniStudyNotes/src/main/kotlin/com/gingaabread/ministudynotes/repositories/UserRepository.kt:17:9</span><span class="message">The function existsByEmail is missing documentation.</span>
+        <pre><code><span class="lineno">  14 </span>
+<span class="lineno">  15 </span>    fun existsByUsername(username: String) : Boolean
+<span class="lineno">  16 </span>
+<span class="lineno">  17 </span>    fun <span class="error">existsByEmail</span>(email: String) : Boolean
+<span class="lineno">  18 </span>
+<span class="lineno">  19 </span>}
+</code></pre>
+      </li>
+      <li><span class="location">C:/Users/Gino/Desktop/Informatik/Web/StudyNotes/MiniStudyNotes/src/test/kotlin/com/gingaabread/ministudynotes/MiniStudyNotesApplicationTests.kt:10:6</span><span class="message">The function contextLoads is missing documentation.</span>
+        <pre><code><span class="lineno">   7 </span>class MiniStudyNotesApplicationTests {
+<span class="lineno">   8 </span>
+<span class="lineno">   9 </span>	@Test
+<span class="lineno">  10 </span>	fun <span class="error">contextLoads</span>() {
+<span class="lineno">  11 </span>	}
+<span class="lineno">  12 </span>
+<span class="lineno">  13 </span>}
+</code></pre>
+      </li>
+    </ul>
+  </details>
+  <h3>empty-blocks: 1</h3>
+  <details id="EmptyFunctionBlock" open="open">
+    <summary class="rule-container"><span class="rule">EmptyFunctionBlock: 1 </span><span class="description">Empty block of code detected. As they serve no purpose they should be removed.</span></summary>
+    <ul>
+      <li><span class="location">C:/Users/Gino/Desktop/Informatik/Web/StudyNotes/MiniStudyNotes/src/test/kotlin/com/gingaabread/ministudynotes/MiniStudyNotesApplicationTests.kt:10:21</span><span class="message">This empty block of code can be removed.</span>
+        <pre><code><span class="lineno">   7 </span>class MiniStudyNotesApplicationTests {
+<span class="lineno">   8 </span>
+<span class="lineno">   9 </span>	@Test
+<span class="lineno">  10 </span>	fun contextLoads() <span class="error">{</span>
+<span class="lineno">  11 </span><span class="error">	}</span>
+<span class="lineno">  12 </span>
+<span class="lineno">  13 </span>}
+</code></pre>
+      </li>
+    </ul>
+  </details>
+  <h3>performance: 1</h3>
+  <details id="SpreadOperator" open="open">
+    <summary class="rule-container"><span class="rule">SpreadOperator: 1 </span><span class="description">In most cases using a spread operator causes a full copy of the array to be created before calling a method. This may result in a performance penalty.</span></summary>
+    <ul>
+      <li><span class="location">C:/Users/Gino/Desktop/Informatik/Web/StudyNotes/MiniStudyNotes/src/main/kotlin/com/gingaabread/ministudynotes/MiniStudyNotesApplication.kt:11:43</span><span class="message">In most cases using a spread operator causes a full copy of the array to be created before calling a method. This may result in a performance penalty.</span>
+        <pre><code><span class="lineno">   8 </span>class MiniStudyNotesApplication
+<span class="lineno">   9 </span>
+<span class="lineno">  10 </span>fun main(args: Array&lt;String&gt;) {
+<span class="lineno">  11 </span>	runApplication&lt;MiniStudyNotesApplication&gt;<span class="error">(*args)</span> {
+<span class="lineno">  12 </span>		setBannerMode(Banner.Mode.OFF)
+<span class="lineno">  13 </span>	}
+<span class="lineno">  14 </span>}
+</code></pre>
+      </li>
+    </ul>
+  </details>
+  <h3>style: 3</h3>
+  <details id="ForbiddenComment" open="open">
+    <summary class="rule-container"><span class="rule">ForbiddenComment: 1 </span><span class="description">Flags a forbidden comment.</span></summary>
+    <ul>
+      <li><span class="location">C:/Users/Gino/Desktop/Informatik/Web/StudyNotes/MiniStudyNotes/src/main/kotlin/com/gingaabread/ministudynotes/data/User.kt:10:2</span><span class="message">This comment contains 'TODO:' that has been defined as forbidden in detekt.</span>
+        <pre><code><span class="lineno">   7 </span>import java.time.LocalDate
+<span class="lineno">   8 </span>
+<span class="lineno">   9 </span>/**
+<span class="lineno">  10 </span> <span class="error">*  The [User] class describes the user of the application who can create any amount of subjects and study notes.</span>
+<span class="lineno">  11 </span><span class="error"> *  When instantiating a user, the [id] is generated automatically. The current local date on the server is</span>
+<span class="lineno">  12 </span><span class="error"> *  also taken as the [creationDate]. During the creation of the account, the user merely has to provide a</span>
+<span class="lineno">  13 </span><span class="error"> *  [username], an [email] and a password.</span>
+</code></pre>
+      </li>
+    </ul>
+  </details>
+  <details id="UnusedPrivateMember" open="open">
+    <summary class="rule-container"><span class="rule">UnusedPrivateMember: 2 </span><span class="description">Private member is unused.</span></summary>
+    <ul>
+      <li><span class="location">C:/Users/Gino/Desktop/Informatik/Web/StudyNotes/MiniStudyNotes/src/main/kotlin/com/gingaabread/ministudynotes/data/User.kt:20:5</span><span class="message">Private property id is unused.</span>
+        <pre><code><span class="lineno">  17 </span>@Document(&quot;User&quot;)
+<span class="lineno">  18 </span>data class User(
+<span class="lineno">  19 </span>
+<span class="lineno">  20 </span>    <span class="error">/**</span>
+<span class="lineno">  21 </span><span class="error">     *  The automatically generated MongoDB object id identifying the user.</span>
+<span class="lineno">  22 </span><span class="error">     *  Created on instantiation.</span>
+<span class="lineno">  23 </span><span class="error">     */</span>
+</code></pre>
+      </li>
+      <li><span class="location">C:/Users/Gino/Desktop/Informatik/Web/StudyNotes/MiniStudyNotes/src/main/kotlin/com/gingaabread/ministudynotes/data/User.kt:27:5</span><span class="message">Private property creationDate is unused.</span>
+        <pre><code><span class="lineno">  24 </span>    @Id
+<span class="lineno">  25 </span>    private val id: ObjectId = ObjectId(),
+<span class="lineno">  26 </span>
+<span class="lineno">  27 </span>    <span class="error">/**</span>
+<span class="lineno">  28 </span><span class="error">     *  The date of the account creation.</span>
+<span class="lineno">  29 </span><span class="error">     *  Created automatically on instantiation using the server's local date.</span>
+<span class="lineno">  30 </span><span class="error">     */</span>
+</code></pre>
+      </li>
+    </ul>
+  </details>
+</div>
+
+
+generated with <a href="https://detekt.github.io/">detekt version 1.18.0-RC3</a> on 2023-04-06 19:53:58 UTC.
+
+</body>
+</html>

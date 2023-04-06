@@ -1,0 +1,42 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:com.gingaabread.ministudynotes.controller////PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.controller/index.html
+$dokka.location:com.gingaabread.ministudynotes.controller/UserController///PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.controller/-user-controller/index.html
+$dokka.location:com.gingaabread.ministudynotes.controller/UserController/UserController/#com.gingaabread.ministudynotes.repositories.UserRepository/PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.controller/-user-controller/-user-controller.html
+$dokka.location:com.gingaabread.ministudynotes.controller/UserController/deleteAll/#/PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.controller/-user-controller/delete-all.html
+$dokka.location:com.gingaabread.ministudynotes.controller/UserController/deleteUserByUsername/#kotlin.String/PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.controller/-user-controller/delete-user-by-username.html
+$dokka.location:com.gingaabread.ministudynotes.controller/UserController/getByUsername/#kotlin.String/PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.controller/-user-controller/get-by-username.html
+$dokka.location:com.gingaabread.ministudynotes.controller/UserController/getCount/#/PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.controller/-user-controller/get-count.html
+$dokka.location:com.gingaabread.ministudynotes.controller/UserController/postUser/#kotlin.String#kotlin.String/PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.controller/-user-controller/post-user.html
+$dokka.location:com.gingaabread.ministudynotes.controller/UserController/userRepository/#/PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.controller/-user-controller/user-repository.html
+$dokka.location:com.gingaabread.ministudynotes.data////PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.data/index.html
+$dokka.location:com.gingaabread.ministudynotes.data/StudyNote///PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.data/-study-note/index.html
+$dokka.location:com.gingaabread.ministudynotes.data/StudyNote/StudyNote/#kotlin.String#java.awt.Color#java.util.Date/PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.data/-study-note/-study-note.html
+$dokka.location:com.gingaabread.ministudynotes.data/StudyNote/colour/#/PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.data/-study-note/colour.html
+$dokka.location:com.gingaabread.ministudynotes.data/StudyNote/creationDate/#/PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.data/-study-note/creation-date.html
+$dokka.location:com.gingaabread.ministudynotes.data/StudyNote/text/#/PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.data/-study-note/text.html
+$dokka.location:com.gingaabread.ministudynotes.data/Subject///PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.data/-subject/index.html
+$dokka.location:com.gingaabread.ministudynotes.data/Subject/Subject/#kotlin.String#kotlin.collections.List[com.gingaabread.ministudynotes.data.StudyNote]/PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.data/-subject/-subject.html
+$dokka.location:com.gingaabread.ministudynotes.data/Subject/name/#/PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.data/-subject/name.html
+$dokka.location:com.gingaabread.ministudynotes.data/Subject/notes/#/PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.data/-subject/notes.html
+$dokka.location:com.gingaabread.ministudynotes.data/User///PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.data/-user/index.html
+$dokka.location:com.gingaabread.ministudynotes.data/User/User/#org.bson.types.ObjectId#java.time.LocalDate#kotlin.String#kotlin.String/PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.data/-user/-user.html
+$dokka.location:com.gingaabread.ministudynotes.data/User/email/#/PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.data/-user/email.html
+$dokka.location:com.gingaabread.ministudynotes.data/User/username/#/PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.data/-user/username.html
+$dokka.location:com.gingaabread.ministudynotes.repositories////PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.repositories/index.html
+$dokka.location:com.gingaabread.ministudynotes.repositories/UserRepository///PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.repositories/-user-repository/index.html
+$dokka.location:com.gingaabread.ministudynotes.repositories/UserRepository/existsByEmail/#kotlin.String/PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.repositories/-user-repository/exists-by-email.html
+$dokka.location:com.gingaabread.ministudynotes.repositories/UserRepository/existsByUsername/#kotlin.String/PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.repositories/-user-repository/exists-by-username.html
+$dokka.location:com.gingaabread.ministudynotes.repositories/UserRepository/findByEmail/#kotlin.String/PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.repositories/-user-repository/find-by-email.html
+$dokka.location:com.gingaabread.ministudynotes.repositories/UserRepository/findByUsername/#kotlin.String/PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes.repositories/-user-repository/find-by-username.html
+$dokka.location:com.gingaabread.ministudynotes////PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes/index.html
+$dokka.location:com.gingaabread.ministudynotes//main/#kotlin.Array[kotlin.String]/PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes/main.html
+$dokka.location:com.gingaabread.ministudynotes/MiniStudyNotesApplication///PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes/-mini-study-notes-application/index.html
+$dokka.location:com.gingaabread.ministudynotes/MiniStudyNotesApplication/MiniStudyNotesApplication/#/PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes/-mini-study-notes-application/-mini-study-notes-application.html
+$dokka.location:com.gingaabread.ministudynotes/ServletInitializer///PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes/-servlet-initializer/index.html
+$dokka.location:com.gingaabread.ministudynotes/ServletInitializer/ServletInitializer/#/PointingToDeclaration/-mini-study-notes/com.gingaabread.ministudynotes/-servlet-initializer/-servlet-initializer.html
+com.gingaabread.ministudynotes
+com.gingaabread.ministudynotes.controller
+com.gingaabread.ministudynotes.data
+com.gingaabread.ministudynotes.repositories
+

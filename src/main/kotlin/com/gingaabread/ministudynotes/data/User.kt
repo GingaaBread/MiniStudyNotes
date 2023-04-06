@@ -28,14 +28,12 @@ data class User(
      *  The date of the account creation.
      *  Created automatically on instantiation using the server's local date.
      */
-    @Field("creationDate")
     private val creationDate: LocalDate = LocalDate.now(),
 
     /**
      *  The unique name of the user provided during account creation.
      *  At the moment, there are no restrictions to the username except for uniqueness.
      */
-    @Field("username")
     val username: String,
 
     /**
@@ -43,7 +41,6 @@ data class User(
      *  For UX reasons, there is no pattern matched against the user input.
      *  Instead, the user will have to confirm their mail address by the use of a confirmation mail.
      */
-    @Field("email")
     val email: String
 
 )
