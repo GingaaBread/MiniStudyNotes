@@ -24,6 +24,6 @@ data class Subject(
      *  The list of notes that the user has saved in the subject.
      *  When creating a new subject, the list is initially empty.
      */
-    val notes: List<StudyNote> = emptyList()
+    var notes: List<StudyNote> = emptyList()
 
 )

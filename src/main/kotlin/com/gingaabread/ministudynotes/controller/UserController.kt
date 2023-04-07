@@ -1,5 +1,6 @@
 package com.gingaabread.ministudynotes.controller
 
+import com.gingaabread.ministudynotes.data.StudyNote
 import com.gingaabread.ministudynotes.data.Subject
 import com.gingaabread.ministudynotes.data.User
 import com.gingaabread.ministudynotes.repositories.UserRepository
@@ -236,6 +237,56 @@ class UserController(
             ResponseEntity
                 .ok()
                 .body(userRepository.findByUsername(username)!!.subjects)
+        }
+    }
+
+    @PostMapping("/{username}/subjects/{subjectName}/notes")
+    fun createStudyNote(@PathVariable("username") username: String,
+                        @PathVariable("subjectName") subjectName: String,
+                        @RequestBody note: StudyNote) : ResponseEntity<String> {
+        // Check if the specified user does not exist
+        return if (!userRepository.existsByUsername(username)) {
+            ResponseEntity
+                .badRequest()
+                .body("Username does not exist")
+            // Note that the following not null cast !! is okay as we are checking for null above
+        } else if (userRepository.findByUsername(username)!!.subjects.none { it.name == subjectName }) {
+            ResponseEntity
+                .badRequest()
+                .body("Username does not have a subject with the name '$subjectName'")
+        } else {
+            val user = userRepository.findByUsername(username)!!
+            val subject = user.subjects.find { it.name == subjectName }!!
+            subject.notes += note
+
+            userRepository.save(user)
+
+            ResponseEntity
+                .ok()
+                .build()
+        }
+    }
+
+    @GetMapping("/{username}/subjects/{subjectName}/notes")
+    fun getStudyNotes(@PathVariable("username") username: String,
+                      @PathVariable("subjectName") subjectName: String) : ResponseEntity<List<StudyNote>> {
+        // Check if the specified user does not exist
+        return if (!userRepository.existsByUsername(username)) {
+            ResponseEntity
+                .badRequest()
+                .build()
+            // Note that the following not null cast !! is okay as we are checking for null above
+        } else if (userRepository.findByUsername(username)!!.subjects.none { it.name == subjectName }) {
+            ResponseEntity
+                .badRequest()
+                .build()
+        } else {
+            val user = userRepository.findByUsername(username)!!
+            val subject = user.subjects.find { it.name == subjectName }!!
+
+            ResponseEntity
+                .ok()
+                .body(subject.notes)
         }
     }
 
