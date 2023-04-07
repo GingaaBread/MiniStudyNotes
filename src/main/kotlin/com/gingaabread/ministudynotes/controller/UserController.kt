@@ -1,5 +1,6 @@
 package com.gingaabread.ministudynotes.controller
 
+import com.gingaabread.ministudynotes.data.Subject
 import com.gingaabread.ministudynotes.data.User
 import com.gingaabread.ministudynotes.repositories.UserRepository
 import org.springframework.beans.factory.annotation.Autowired
@@ -92,6 +93,149 @@ class UserController(
             ResponseEntity
                 .ok()
                 .build()
+        }
+    }
+
+    /**
+     *  Creates a new [Subject] with the specified [subjectName] for the user with the specified [username]
+     *  If the user does not exist or the subject name already exists, this method sends an error, instead.
+     *
+     *  @param username - the name of the user that should receive the new subject
+     *  @param subjectName - the name of the subject that should be created
+     *
+     *  @return 200 OK - if the user exists, the subject name is unique, and the subject has been created
+     *          400 BAD REQUEST - if either the user does not exist or the subject name already exists
+     */
+    @PostMapping("/{username}/subjects/{subjectName}")
+    fun createNewSubject(@PathVariable("username") username: String,
+                         @PathVariable("subjectName") subjectName: String) : ResponseEntity<String> {
+        // Check if the specified user does not exist
+        return if (userRepository.findByUsername(username) == null) {
+            ResponseEntity
+                .badRequest()
+                .body("Username does not exist.")
+            // Note that the following not null cast !! is okay as we are checking for null above
+        } else if (userRepository.findByUsername(username)!!.subjects.any { it.name == subjectName }) {
+            // If a subject with the given name already exists, return an error
+            ResponseEntity
+                .badRequest()
+                .body("Subject name already exists.")
+        } else {
+            // If everything is okay, create the new subject and send a 200
+            val editedUser = userRepository.findByUsername(username)!!
+            editedUser.subjects += Subject(name = subjectName)
+            userRepository.save(editedUser)
+
+            ResponseEntity
+                .ok()
+                .build()
+        }
+    }
+
+    /**
+     *  Deletes the [Subject] with the specified [subjectName] of the User with the specified [username]
+     *  If the user or subject does not exist, sends an error, instead.
+     *
+     *  @param username - the name of the user whose subject should be deleted
+     *  @param subjectName - the name of the subject that should be deleted
+     *
+     *  @return 200 OK - if the username and subject exists and the subject has been deleted
+     *          400 BAD REQUEST - if the username or subject does not exist
+     */
+    @DeleteMapping("/{username}/subjects/{subjectName}")
+    fun deleteSubject(@PathVariable("username") username: String,
+                         @PathVariable("subjectName") subjectName: String) : ResponseEntity<String> {
+        // Check if the specified user does not exist
+        return if (userRepository.findByUsername(username) == null) {
+            ResponseEntity
+                .badRequest()
+                .body("Username does not exist.")
+            // Note that the following not null cast !! is okay as we are checking for null above
+        } else if (userRepository.findByUsername(username)!!.subjects.none { it.name == subjectName }) {
+            // If the user does not have a subject with the specified name send an error
+            ResponseEntity
+                .badRequest()
+                .body("Subject does not exist.")
+        } else {
+
+            val editedUser = userRepository.findByUsername(username)!!
+            val subjectToRemove = editedUser.subjects.find { it.name == subjectName }!!
+
+            // If everything is okay, delete the subject and send a 200
+            editedUser.subjects -= subjectToRemove
+            userRepository.save(editedUser)
+
+            ResponseEntity
+                .ok()
+                .build()
+        }
+    }
+
+    /**
+     *  Changes the subject name of the specified subject.
+     *  If the original subject or username does not exist, sends an error, instead.
+     *
+     *  @param username - the name of the user whose subject should be renamed
+     *  @param subjectName - the original name of the subject that should be renamed to [newSubjectName]
+     *  @param newSubjectName - the new name replacing the original [subjectName]
+     *
+     *  @return 200 OK - if the username and subject exists and the subject has been renamed
+     *          400 BAD REQUEST - if the user or subject does not exist or the new subject name already exists
+     */
+    @PutMapping("/{username}/subjects/{subjectName}/{newSubjectName}")
+    fun renameSubject(@PathVariable("username") username: String,
+                      @PathVariable("subjectName") subjectName: String,
+                      @PathVariable("newSubjectName") newSubjectName: String) : ResponseEntity<String> {
+        // Check if the specified user does not exist
+        return if (userRepository.findByUsername(username) == null) {
+            ResponseEntity
+                .badRequest()
+                .body("Username does not exist.")
+            // Note that the following not null cast !! is okay as we are checking for null above
+        } else if (userRepository.findByUsername(username)!!.subjects.none { it.name == subjectName }) {
+            // If the user does not have a subject with the specified name send an error
+            ResponseEntity
+                .badRequest()
+                .body("Subject does not exist.")
+        } else if (userRepository.findByUsername(username)!!.subjects.any { it.name == newSubjectName }) {
+            // If a subject with the new given name already exists, return an error
+            ResponseEntity
+                .badRequest()
+                .body("New subject name already exists.")
+        } else {
+            val editedUser = userRepository.findByUsername(username)!!
+            val subjectToEdit = editedUser.subjects.find { it.name == subjectName }!!
+            subjectToEdit.name = newSubjectName
+
+            // If everything is okay, edit the subject and send a 200
+            userRepository.save(editedUser)
+
+            ResponseEntity
+                .ok()
+                .build()
+        }
+    }
+
+    /**
+     *  Retrieves the subjects of the user with the specified [username]
+     *
+     *  @param username - the name of the user whose subjects should be returned
+     *
+     *  @return 200 OK + Subjects - if the user exists
+     *          400 BAD REQUEST - if the user does not exist
+     */
+    @GetMapping("/{username}/subjects")
+    fun getSubjects(@PathVariable("username") username: String) : ResponseEntity<List<Subject>> {
+        // Check if the specified user does not exist
+        return if (userRepository.findByUsername(username) == null) {
+            ResponseEntity
+                .badRequest()
+                .build()
+            // Note that the following not null cast !! is okay as we are checking for null above
+        } else {
+            ResponseEntity
+                .ok()
+                .body(userRepository.findByUsername(username)!!.subjects)
         }
     }
 

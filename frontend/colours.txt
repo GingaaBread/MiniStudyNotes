@@ -1,0 +1,14 @@
+yellow = #ffeaa7
+orange = #fab1a0
+purple = #a29bfe
+blue = #74b9ff
+green = #55efc4
+
+background (bright mode): #fffff
+background (dark mode): #2d3436
+
+background contrast (bright mode): #dfe6e9
+background contrast (dark mode): #636e72
+
+prm (bright mode): #00000
+prm (dark mode): #ffffff

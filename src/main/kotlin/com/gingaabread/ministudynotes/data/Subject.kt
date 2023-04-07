@@ -18,7 +18,7 @@ data class Subject(
      *  The name of the subject specified by the user.
      *  At the moment, there are no restrictions to the name
      */
-    val name: String,
+    var name: String,
 
     /**
      *  The list of notes that the user has saved in the subject.

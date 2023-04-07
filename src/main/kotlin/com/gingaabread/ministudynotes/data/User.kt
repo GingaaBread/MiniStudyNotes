@@ -41,6 +41,13 @@ data class User(
      *  For UX reasons, there is no pattern matched against the user input.
      *  Instead, the user will have to confirm their mail address by the use of a confirmation mail.
      */
-    val email: String
+    val email: String,
+
+    /**
+     *  The subjects that the user has created.
+     *  The subjects contain the individual study sets.
+     *  Initially empty when a new user is created.
+     */
+    var subjects: List<Subject> = emptyList()
 
 )

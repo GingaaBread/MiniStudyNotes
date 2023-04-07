@@ -2,9 +2,7 @@ package com.gingaabread.ministudynotes.data
 
 import jakarta.persistence.Id
 import org.bson.types.ObjectId
-import java.awt.Color
 import java.time.LocalDate
-import java.util.Date
 
 data class StudyNote (
 
@@ -17,6 +15,6 @@ data class StudyNote (
 
     val content: String,
 
-    val colour: Color
+    val colour: String
 
 )
